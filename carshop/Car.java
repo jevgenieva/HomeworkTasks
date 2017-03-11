@@ -8,23 +8,23 @@ public class Car {
 	private ThreadPoolExecutor pool;
 	
 	Car() throws InterruptedException {
+		
 		long l = java.lang.System.currentTimeMillis();
 		
-		pool = carPool();
+		pool = createCar();
 		for (Runnable task : pool.getQueue()) {
 			task.run();
 		}
 		pool.shutdown();
 		
-		while(true) {
-		if(pool.isTerminated()) 
-			break;
+		while(!pool.isTerminated()) {
+			//wait for all parts to be assembled
 		}
 		
 		System.out.println("The car is assembled in " + (java.lang.System.currentTimeMillis() - l)/1000.0 + " seconds");
 	}
 	
-	private ThreadPoolExecutor carPool() {
+	private ThreadPoolExecutor createCar() {
 		ThreadPoolExecutor pool = (ThreadPoolExecutor) Executors.newFixedThreadPool(3);
 		for (int i = 0; i < 4; i++) {
 			pool.submit(new Tire());

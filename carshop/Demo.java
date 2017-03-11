@@ -9,6 +9,5 @@ public class Demo {
 		} catch (InterruptedException e) {
 			System.out.println("Production failed!");
 		}
-	}
-	
+	}	
 }
