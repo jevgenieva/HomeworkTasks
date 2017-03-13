@@ -10,12 +10,12 @@ public class RecursiveFraction {
 		System.out.println("Enter a number: ");
 		int pow = sc.nextInt();
 		
-		System.out.println(recursiveFraction(0, pow, 1));
+		System.out.println(recursiveFraction(1, pow, 1));
 		sc.close();
 		
 	}
 	static double recursiveFraction(double sum, int pow, double fract) {
-		if(pow <= 0)
+		if(pow == 0)
 			return sum;
 		
 		fract *= 2;
